@@ -39,7 +39,7 @@ describe('AuthResolver (e2e)', () => {
       email: "'testUser@gmail.com'",
       password: "'A1234a!@#'",
       name: "'이찬양'",
-      birth: "'1980-02-17'",
+      birth: "'1992-02-17'",
       sex: Sex.MALE,
       role: UserRole.USER,
     };
