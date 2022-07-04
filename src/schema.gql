@@ -1,0 +1,107 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateUserDto {
+  """The birthday of the user"""
+  birth: String
+  created_at: String!
+  currentHashedRefreshToken: String
+
+  """The email of the user"""
+  email: String
+
+  """The name of the user"""
+  name: String
+
+  """The password of the user"""
+  password: String
+  photo: String
+  role: UserRole!
+
+  """유저 성별"""
+  sex: Sex!
+  updated_at: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input LoginUserDto {
+  """The email of the user"""
+  email: String
+
+  """The password of the user"""
+  password: String
+}
+
+type Mutation {
+  login(loginData: LoginUserDto!): TokenType!
+  register(createUserDto: CreateUserDto!): UserType!
+}
+
+type Query {
+  findAll: [UserType!]!
+  logOut: TokenType!
+  refresh: TokenType!
+}
+
+enum Sex {
+  FEMALE
+  MALE
+  NONE
+}
+
+"""token"""
+type TokenType {
+  """The accessOption of the token"""
+  accessOption: String!
+
+  """The accessToken of the token"""
+  accessToken: String!
+
+  """The refreshOption of the token"""
+  refreshOption: String!
+
+  """The refreshToken of the token"""
+  refreshToken: String!
+}
+
+enum UserRole {
+  ADMIN
+  AGENCY
+  CONTSULTANT
+  USER
+}
+
+"""User"""
+type UserType {
+  """"""
+  _id: String!
+
+  """"""
+  birth: DateTime!
+
+  """"""
+  currentHashedRefreshToken: String!
+
+  """"""
+  email: String!
+
+  """"""
+  name: String!
+
+  """"""
+  password: String!
+
+  """"""
+  photo: String!
+
+  """"""
+  role: UserRole!
+
+  """"""
+  sex: Sex!
+}
